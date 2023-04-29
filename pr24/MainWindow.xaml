@@ -1,0 +1,55 @@
+﻿<Window x:Class="pr24.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:pr24"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="615" Width="500">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30*"/>
+            <RowDefinition Height="287*"/>
+            <RowDefinition Height="282*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Background="#7c7dff">
+            <Label Margin="0,0,0,0" Grid.Row="0" FontSize="20" HorizontalAlignment="Center" Background="#7c7dff" Foreground="White">Вычисление BMR и TDEE</Label>
+        </StackPanel>
+        <StackPanel Background="#7c7dff" Orientation="Horizontal" Grid.RowSpan="3" Margin="0,28,0,0">
+            <StackPanel Orientation="Vertical">
+                <Label Background="#7c7dff" Width="100" Height="30" Margin="100,50,10,10">ПОЛ</Label>
+                <Label Background="#7c7dff" Width="100" Height="30" Margin="100,10,10,10">ВОЗРАСТ/ЛЕТ</Label>
+                <Label Background="#7c7dff" Width="100" Height="30" Margin="100,10,10,10">ВЕС/КГ</Label>
+                <Label Background="#7c7dff" Width="100" Height="30" Margin="100,10,10,10">РОСТ/СМ</Label>
+                <Label Background="#7c7dff" Width="100" Height="30" Margin="100,10,10,10">АКТИВНОСТЬ</Label>
+            </StackPanel>
+            <StackPanel Orientation="Vertical">
+                <ComboBox x:Name="people" Background="GhostWhite" Width="200" Height="30" Margin="10,50,10,10">
+                    <ComboBoxItem x:Name="Male">МУЖЧИНА</ComboBoxItem>
+                    <ComboBoxItem x:Name="Female">ЖЕНЩИНА</ComboBoxItem>
+                </ComboBox>
+                <TextBox x:Name="age" Background="White" Width="200" Height="30" Margin="10,10,10,10" TextChanged="age_TextChanged"></TextBox>
+                <TextBox x:Name="mass" Background="White" Width="200" Height="30" Margin="10,10,10,10" TextChanged="mass_TextChanged"></TextBox>
+                <TextBox x:Name="height" Background="White" Width="200" Height="30" Margin="10,10,10,10" TextChanged="height_TextChanged"></TextBox>
+                <ComboBox x:Name="activity" Background="GhostWhite" Width="200" Height="30" Margin="10,10,10,10">
+                    <ComboBoxItem x:Name="sit" Content="Сидячий"></ComboBoxItem>
+                    <ComboBoxItem x:Name="little" Content="Немного активный"></ComboBoxItem>
+                    <ComboBoxItem x:Name="normal" Content="Средняя активность"></ComboBoxItem>
+                    <ComboBoxItem x:Name="big" Content="Большая активность"></ComboBoxItem>
+                    <ComboBoxItem x:Name="extrimal" Content="Экстра нагрузка"></ComboBoxItem>
+                </ComboBox>
+            </StackPanel>
+
+        </StackPanel>
+        <StackPanel Grid.Row="2" Margin="0,55,0,0">
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,30" Width="500">
+                <Button Background="White" Foreground="Gray" Height="30" Width="100" x:Name="clear"  Grid.Row="2" Margin="55,0,20,0" Click="clear_Click">ОЧИСТИТЬ</Button>
+                <Button Background="White" Foreground="Gray" Height="30" Width="100" x:Name="OK"  Grid.Row="2" Margin="20,0,20,0" Click="OK_Click">ВЫЧИСЛИТЬ</Button>
+                <Button Background="White" Foreground="Gray" Height="30" Width="100" x:Name="close"  Grid.Row="2" Margin="20,0,55,0" Click="close_Click">ЗАКРЫТЬ</Button>
+            </StackPanel>
+            <TextBox Background="Gray" Foreground="White" Width="410" Height="40"  Grid.Row="2" x:Name="result">Ответ:</TextBox>
+            <TextBox Width="300" Margin="0,30,0,0" x:Name="errorText" Height="30"  VerticalAlignment="Top" Grid.Row="2"></TextBox>
+
+        </StackPanel>
+    </Grid>
+</Window>
